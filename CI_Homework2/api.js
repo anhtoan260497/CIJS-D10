@@ -14,11 +14,16 @@ const renderUI = async () => {
   })
   console.log(newData);
   newData.map(el=>{
+    let color = ""
+    if(el.color == null) {color = 0} else {color = el.color}
     rootProduct.insertAdjacentHTML("beforeend",
     `<div class="product-container">
     <img src="${el.image}">
     <p class="product-name">${el.name}</p>
-    <h3>SKU: <span>${el.sku}    </span></h3>
+    <p>${el.errorDescription}</p>
+    <p>ID: <span>${el.id}</span></p>
+    <p>Color : <span>${color}</span></p>
+    <h3>SKU: <span>${el.sku}</span></h3>
 </div>`
     )
   })
