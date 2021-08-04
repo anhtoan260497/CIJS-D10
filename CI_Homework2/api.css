@@ -86,7 +86,7 @@ button:active {
 }
 .root-product .product-container:hover {
   background-color: black;
-  transition: background-color 0.5s;
+  transition: background-color 0.5s linear;
 }
 .root-product .product-container:hover img {
   border-radius: 17px;
@@ -112,44 +112,8 @@ button:active {
     width: 100%;
   }
 
-  .root-product {
-    margin-top: 50px;
-    padding: 0 4%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
   .root-product .product-container {
-    margin: 20px 0;
     width: 22%;
-    height: 400px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 17px;
-    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.1);
-  }
-  .root-product .product-container:hover {
-    background-color: black;
-    transition: background-color 1s;
-  }
-  .root-product .product-container:hover img {
-    border-radius: 17px;
-  }
-  .root-product .product-container:hover .product-name, .root-product .product-container:hover h3 {
-    color: white;
-  }
-  .root-product .product-container img {
-    max-width: 90%;
-  }
-  .root-product .product-container .product-name, .root-product .product-container h3 {
-    font-family: "Lato", sans-serif;
-    font-size: 18px;
-    text-align: center;
-  }
-  .root-product .product-container h3 {
-    font-size: 20px;
   }
 }
 

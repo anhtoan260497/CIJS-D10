@@ -16,6 +16,7 @@ const renderUI = async () => {
   newData.map(el=>{
     let color = ""
     if(el.color == null) {color = 0} else {color = el.color}
+    if(el.image == "") {el.image ="https://images.samsung.com/is/image/samsung/vn-qled-q65r-qa43q65rakxxv-frontsilver-151564917?$684_547_PNG$"}
     rootProduct.insertAdjacentHTML("beforeend",
     `<div class="product-container">
     <img src="${el.image}">

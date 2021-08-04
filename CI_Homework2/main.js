@@ -50,3 +50,18 @@ function romanToInt(str) {
     return result
 }
 // console.log(romanToInt("MCMXCVII"))
+
+function timeCovert(s){
+    let result =""
+    let day = 0; // tạo biến kiểm tra ngày đêm 
+    if(s.includes("A")) {day = 1} else if(s.includes("P")) {day = 0} else {return result = "Missing 'AM' or 'PM' format"} // không có AM hoặc PM return false, 0 là đêm, 1 là ngày
+    let newTime = s.slice(0,s.length-2) // xoá 2 ký tự cuối
+    let timeArr = newTime.split(':') // tạo mảng mới
+    if(timeArr[0] > 12 || timeArr[1] > 59 || timeArr[2] > 59) return result = "Wrong Input Type" // không đúng định dạng return false
+    if(day == 0 && timeArr[0] < 12) {timeArr[0] = parseInt(timeArr[0])+12} // nếu là ban đêm và số giờ bé hơn 12 thì +12 vào giờ, nếu đúng 12h thì để nguyên
+    else 
+    if(day == 1 && timeArr[0] == 12) {timeArr[0] = 0}//nếu là ban ngày mà số giờ bằng 12 thì chuyển giờ thành 0, còn không thì để nguyên
+    return result =  timeArr.join(":") 
+   
+}
+// console.log(timeCovert("12:01:25AM"))
