@@ -6,32 +6,7 @@ import Meat from './Meat';
 import Bacon from './Bacon';
 import Ingredient from './Ingredient';
 
-const initialState = {
-        ingredients: [{
-            name: "salad",
-            quantityArr: [],
-            quantity : 0,
-            unit: 10
-        },
-        {
-            name: "cheese",
-            quantityArr: [],
-            quantity: 0,
-            unit: 20
-        }, {
-            name: "meat",
-            quantityArr: [],
-            quantity : 0,
-            unit: 25
-        },
-        {
-            name: "bacon",
-            quantityArr:[],
-            quantity : 0,
-            unit: 28
-        }
-        ]
-};
+
 
 class HambugerOrder extends Component {
     constructor(props) {
@@ -118,12 +93,62 @@ class HambugerOrder extends Component {
     }
 
     onOrderNow = () =>{
-      this.setState(initialState)
+      this.setState({
+        ingredients: [{
+            name: "salad",
+            quantityArr: [],
+            quantity : 0,
+            unit: 10
+        },
+        {
+            name: "cheese",
+            quantityArr: [],
+            quantity: 0,
+            unit: 20
+        }, {
+            name: "meat",
+            quantityArr: [],
+            quantity : 0,
+            unit: 25
+        },
+        {
+            name: "bacon",
+            quantityArr:[],
+            quantity : 0,
+            unit: 28
+        }
+        ]
+})
         alert("Thanh Toán Thành Công")
     }
 
     onReset = () =>{
-        this.setState(initialState)
+        this.setState({
+        ingredients: [{
+            name: "salad",
+            quantityArr: [],
+            quantity : 0,
+            unit: 10
+        },
+        {
+            name: "cheese",
+            quantityArr: [],
+            quantity: 0,
+            unit: 20
+        }, {
+            name: "meat",
+            quantityArr: [],
+            quantity : 0,
+            unit: 25
+        },
+        {
+            name: "bacon",
+            quantityArr:[],
+            quantity : 0,
+            unit: 28
+        }
+        ]
+})
         console.log(this.state)
     }
 
