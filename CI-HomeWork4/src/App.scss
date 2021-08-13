@@ -87,7 +87,7 @@ button {
         transition: background-color 0.5s ease-in-out;
         &:hover {
             background-color: black;
-            transition: background-color 0.5s linear;
+            transition: background-color 0.5s ;
             img {
                 border-radius: 17px;
             }
@@ -118,7 +118,7 @@ button {
         width: 100%;
     }
     .root-product {
-        .product-container{     
+        .product-container{
             width: 22%;
         }
     }
