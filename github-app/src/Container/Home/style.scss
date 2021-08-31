@@ -1,0 +1,41 @@
+.user-container {
+    border: 1px solid red;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0 40px;
+    .user {
+        width: 20%;
+        height: 250px;
+        border: 1px solid red;
+        margin: 20px 0;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        img {
+            width: 120px;
+            border-radius: 50%;
+        }
+        p {
+            font-size: 20px;
+        }
+        button {
+            width: 50px;
+            height: 35px;
+            background-color: cadetblue;
+            border-radius: 10px;
+            background-color: rgb(65, 138, 200);
+            color: white;
+            outline: none;
+            border: none;
+            &:active {
+                // color:black;
+                box-shadow: 1px 1px 2px rgb(65, 138, 200);
+            }
+        }
+    }
+}
