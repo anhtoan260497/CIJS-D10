@@ -6,38 +6,50 @@ import About from "./Container/About";
 import Search from "./Container/Search";
 import UserInfo from "./Container/UserInfo";
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      clickUser:""
+    }
+  }
+
+  onClickUser = search =>{
+   this.setState({clickUser:search})
+  }
   render() {
+
+
     return (
       <BrowserRouter>
         <div>
           <div className="navbar">
-            <div className="logo-container">
+            <Link  to="/" className="logo-container">
               <img
                 className="logo"
                 src="https://download.logo.wine/logo/GitHub/GitHub-Logo.wine.png"
                 alt=""
               />
               <h2>Github Finder</h2>
-            </div>
+            </Link>
             <nav>
               <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link className="home" to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/About">About</Link>
+                  <Link  className="about" to="/About">About</Link>
                 </li>
                 <li>
-                  <Link to="/Search">Search</Link>
+                  <Link  className="search" to="/Search">Search</Link>
                 </li>
               </ul>
             </nav>
           </div>
           <Switch>
-            <Route path="/" exact component={Home} />
+          <Route path="/" exact render={(props) => <Home {...props} onClickUser={this.onClickUser}/>} />
             <Route path="/About" component={About} />
-            <Route path="/Search" component={Search} />
-            <Route path="/User/" component={UserInfo} /> 
+            <Route path="/Search" render={(props) => <Search {...props} onClickUser={this.onClickUser} />} />
+            <Route path="/User/:login" render={(props) => <UserInfo {...props} clickUser={this.state.clickUser} />} /> 
           </Switch>
         </div>
       </BrowserRouter>

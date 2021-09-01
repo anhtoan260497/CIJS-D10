@@ -17,7 +17,7 @@ class Home extends Component {
 
   renderAllUser = () => {
     return this.state.user.map((el) => {
-      return <User userInfo={el} />;
+      return <User userInfo={el} history={this.props.history} login={el.login} onClickUser={this.props.onClickUser} key={el.id}/>;
     });
   };
 

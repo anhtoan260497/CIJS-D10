@@ -3,10 +3,9 @@ import "./User.scss";
 function User(props) {
 
   const onClickMore = () => {
-    const {login} = props.match.params
-    console.log(props.history)
-    console.log(props.match)
-    props.history.push("/User/")
+    const {login} = props
+    props.history.push(`/User/${login}`)
+    props.onClickUser(login)
   };
 
   return (

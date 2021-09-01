@@ -30,7 +30,7 @@ class Search extends Component {
   };
   renderSearchUser = () => {
     return this.state.user.map((el) => {
-      return <User userInfo={el} key={el.id} history={this.props.history} match={this.props.match}/>;
+      return <User userInfo={el} key={el.id} login={el.login} onClickUser={this.props.onClickUser} history={this.props.history}/>;
     });
   };
 

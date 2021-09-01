@@ -38,3 +38,28 @@
         }
     }
 }
+
+@media screen and (max-width: 960px) {
+    .user-container {
+        .user {
+            width: 27%;
+            height: 280px;
+        }
+    }
+}
+
+@media screen and (max-width: 792px) {
+    .user-container {
+        .user {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .user-container {
+        .user {
+            width: 70%;
+        }
+    }
+}
