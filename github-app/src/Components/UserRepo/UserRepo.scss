@@ -21,6 +21,10 @@
                 text-decoration: none;
                 color: rgb(26, 119, 242);
                 font-size: 24px;
+                text-overflow: ellipsis;
+                overflow: hidden !important;
+                display: inline-block;
+                width: 100%;
                 white-space: nowrap;
                 overflow: hidden !important;
                 text-overflow: ellipsis;
