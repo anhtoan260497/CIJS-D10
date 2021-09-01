@@ -86,9 +86,9 @@ class TodoApp extends Component {
         }
         let newTodoJob = [...this.state.todoJob, newJob]
         this.setState({ todoJob: newTodoJob, add: "" })
-
+    
     }
-
+  
     render() {
         return (
             <div>
