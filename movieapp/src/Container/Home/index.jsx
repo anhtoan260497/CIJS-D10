@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 // import { Link } from "react-router-dom";
 import Carousel from "../../Components/Homepage/Carousel";
+import SearchBar from "../../Components/Homepage/SearchBar";
 import "./Home.scss";
 // import Data from '../../Data/Data'
 
@@ -23,9 +24,10 @@ class Home extends Component {
             src={process.env.PUBLIC_URL + "Images/ReactLogo.jpg"}
             alt=""
           />
-          <h4>React Movie Finder</h4>
+          <h4>Movie Finder</h4>
         </div>
         <Carousel/>
+        <SearchBar />
       </Fragment>
     );
   }

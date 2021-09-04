@@ -1,89 +1,72 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Eczar&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@200&display=swap");
 .popular-container {
-  width: 100%;
-  height: fit-content;
+  width: 100vw;
   position: relative;
 
-  img {
+  .popular-image {
     max-width: 100%;
   }
-  .description-container {
-    width: 100vw;
-    height: 48vh;
-    background: linear-gradient(180deg,rgba(0,0,0,0%),rgba(0,0,0,80%));
 
+  .description-container {
+    position: absolute;
+    height: 65%;
+    top: 35%;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
-    position: relative;
-    bottom: 47.5vh;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0%), rgba(0, 0, 0, 100%));
 
     .popular-name {
-      font-family: "Indie Flower", cursive;
+      font-family: "Architects Daughter", cursive;
       color: white;
       font-size: 56px;
-      margin-left: 44px;
+
+      margin-left: 56px;
     }
 
     .popular-description {
-      width: 70%;
-      font-family: "Eczar", serif;
+      font-family: "Catamaran", sans-serif;
+      font-size: 20px;
       color: white;
-      margin-left: 44px;
+      line-height: -20px;
+
+      width: 70%;
+      height: 70%;
+      padding-left: 56px;
+
+      display: flex;
+      align-items: center;
     }
   }
 }
 
-.slick-slide {
-  height:90vh;
-}
-
-
-@media screen and (max-width: 767px) {
+@media only screen and (max-width: 600px) {
   .popular-container {
-  
-    
     .description-container {
-      width: 100vw;
-      height: 32vh;
-
-      bottom: 32vh;
-  
       .popular-name {
-        font-size: 32px;
-        margin-left: 44px;
-      }
-  
-      .popular-description {
-        width: 70%;
-        font-size:16px;
-      }
-    }
-  }
-}
+        font-family: "Architects Daughter", cursive;
+        color: white;
+        font-size: 20px;
 
-@media screen and (max-width: 400px) {
-  .popular-container {
-  
-    
-    .description-container {
-      width: 100vw;
-      height: 32vh;
-
-      bottom: 32vh;
-  
-      .popular-name {
-        font-size:24px;
-        margin-left: 44px;
+        margin-left: 12px;
       }
-  
+
       .popular-description {
-        width: 70%;
-        font-size:8px;
+        font-family: "Catamaran", sans-serif;
+        font-size: 8px;
+        color: white;
+        line-height: -20px;
+
+        width: 80%;
+        height: 80%;
+        padding-left: 12px;
+
+        display: flex;
+        align-items: center;
       }
     }
   }

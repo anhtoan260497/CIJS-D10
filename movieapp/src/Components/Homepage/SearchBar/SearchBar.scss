@@ -1,0 +1,20 @@
+.search {
+    width: 100vw;
+    background-color: black;
+    height: 80px;
+    margin-top: -4px ;
+    input {
+        width: 100vw;
+        height: 80px;
+        background-color: black;
+        color: white;
+        padding: 20px 56px;
+        font-size: 24px;
+        outline: none;
+        border: none;
+        &::placeholder {
+            color: white;
+            font-size: 24px;
+        }
+    }
+}

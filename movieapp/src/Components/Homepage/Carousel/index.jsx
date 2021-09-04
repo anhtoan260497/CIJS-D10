@@ -28,19 +28,21 @@ export default class AutoPlayMethods extends Component {
 
   renderPopularMovies = () => {
     return this.state.popularMovies.map((el) => {
+      console.log(el.backdrop_path, el.original_title);
       return (
         <div className="popular-container">
-          <img
-            src={`https://image.tmdb.org/t/p/original${el.backdrop_path}`}
-            alt=""
-          />
-          <div className="description-container">
-            <h3 className="popular-name">{el.original_title}</h3>
-            <h3 className="popular-description">
-             {el.overview}
-            </h3>
+            <img
+            className ="popular-image"
+              src={`https://image.tmdb.org/t/p/original${el.backdrop_path}`}
+              alt=""
+            />
+            <div className="description-container">
+              <h3 className="popular-name">{el.original_title}</h3>
+              <h3 className="popular-description">
+                {el.overview}
+              </h3>
+            </div>
           </div>
-        </div>
       );
     });
   };
@@ -53,6 +55,7 @@ export default class AutoPlayMethods extends Component {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 3000,
+      adaptiveHeight:true,  
     };
     return (
       <div>
