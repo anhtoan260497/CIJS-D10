@@ -1,94 +1,66 @@
-import React from "react"
-import { useKeenSlider } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
-import "./Carousel.scss"
-import Data from '../../../Data/Data'
+import React, { Component } from "react";
+import Slider from "react-slick";
+import Data from "../../../Data/Data";
+import "./Carousel.scss";
 
-const Carousel = (props) => {
-    const [currentSlide, setCurrentSlide] = React.useState(0)
-    const [popularMovies,popularFilm] = React.useState(props.popularMovies)
-    const [sliderRef, slider] = useKeenSlider({
-      initial: 0,
-      slideChanged(s) {
-        setCurrentSlide(s.details().relativeSlide)
-      },
-    })
-  
-    // const renderPopularMovies = () => {
-    //     return popularMovies.map( el => {
+export default class AutoPlayMethods extends Component {
+  constructor(props) {
+    super(props);
+    this.play = this.play.bind(this);
+    this.state = {
+      popularMovies: [],
+    };
+  }
+  play() {
+    this.slider.slickPlay();
+  }
 
-    //     })
-    // }
+  componentDidMount = async () => {
+    let res = await Data.getPopularMovies();
+    let data = [];
+    for (let i = 0; i < 6; i++) {
+      data.push(res.data.results[i]);
+    }
+    this.setState({ popularMovies: data }, () => {
+      console.log(this.state.popularMovies);
+    }); // lấy data film popular và lấy ra 6 phim setState
+  };
 
-    return (
-      <>
-        <div className="navigation-wrapper">
-          <div ref={sliderRef} className="keen-slider">
-            <div className="keen-slider__slide number-slide1"><img src="https://image.tmdb.org/t/p/w500/nprqOIEfiMMQx16lgKeLf3rmPrR.jpg" alt=""/></div>
-            <div className="keen-slider__slide number-slide2">2</div>
-            <div className="keen-slider__slide number-slide3">3</div>
-            <div className="keen-slider__slide number-slide4">4</div>
-            <div className="keen-slider__slide number-slide5">5</div>
-            <div className="keen-slider__slide number-slide6">6</div>
+  renderPopularMovies = () => {
+    return this.state.popularMovies.map((el) => {
+      return (
+        <div className="popular-container">
+          <img
+            src={`https://image.tmdb.org/t/p/original${el.backdrop_path}`}
+            alt=""
+          />
+          <div className="description-container">
+            <h3 className="popular-name">{el.original_title}</h3>
+            <h3 className="popular-description">
+             {el.overview}
+            </h3>
           </div>
-          {slider && (
-            <>
-              <ArrowLeft
-                onClick={(e) => e.stopPropagation() || slider.prev()}
-                disabled={currentSlide === 0}
-              />
-              <ArrowRight
-                onClick={(e) => e.stopPropagation() || slider.next()}
-                disabled={currentSlide === slider.details().size - 1}
-              />
-            </>
-          )}
         </div>
-        {slider && (
-          <div className="dots">
-            {[...Array(slider.details().size).keys()].map((idx) => {
-              return (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    slider.moveToSlideRelative(idx)
-                  }}
-                  className={"dot" + (currentSlide === idx ? " active" : "")}
-                />
-              )
-            })}
-          </div>
-        )}
-      </>
-    )
-  }
-  
-  function ArrowLeft(props) {
-    const disabeld = props.disabled ? " arrow--disabled" : ""
-    return (
-      <svg
-        onClick={props.onClick}
-        className={"arrow arrow--left" + disabeld}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-      </svg>
-    )
-  }
-  
-  function ArrowRight(props) {
-    const disabeld = props.disabled ? " arrow--disabled" : ""
-    return (
-      <svg
-        onClick={props.onClick}
-        className={"arrow arrow--right" + disabeld}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-      </svg>
-    )
-}
+      );
+    });
+  };
 
-export default Carousel
+  render() {
+    const settings = {
+      dots: false,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+    };
+    return (
+      <div>
+        <Slider ref={(slider) => (this.slider = slider)} {...settings}>
+          {this.renderPopularMovies()}
+        </Slider>
+        <div style={{ textAlign: "center" }}></div>
+      </div>
+    );
+  }
+}
