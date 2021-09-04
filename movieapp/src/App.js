@@ -4,6 +4,7 @@ import {Switch, BrowserRouter, Route } from "react-router-dom";
 import Movie from "./Container/Movie";
 
 
+
 class App extends Component {
   render() {
     return (
