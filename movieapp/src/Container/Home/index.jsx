@@ -3,18 +3,9 @@ import React, { Component, Fragment } from "react";
 import Carousel from "../../Components/Homepage/Carousel";
 import SearchBar from "../../Components/Homepage/SearchBar";
 import "./Home.scss";
-// import Data from '../../Data/Data'
+import MovieRender from "../../Components/Homepage/MovieRender/index";
 
 class Home extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-           
-        }
-    }
-
-
-
   render() {
     return (
       <Fragment>
@@ -26,8 +17,9 @@ class Home extends Component {
           />
           <h4>Movie Finder</h4>
         </div>
-        <Carousel/>
+        <Carousel />
         <SearchBar />
+        <MovieRender />
       </Fragment>
     );
   }
