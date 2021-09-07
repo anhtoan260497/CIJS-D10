@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+.title {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100px;
+    text-decoration: none;
+
+    background-color: rgb(34, 34, 34);
+
+    padding-left: 24px;
+}
+
+.logo {
+    max-width: 80px;
+    max-height: 80px;
+
+    transform: rotate(357deg);
+
+    margin-right: 8px;
+
+    cursor: pointer;
+}
+
+h4 {
+    font-family: "Indie Flower", cursive;
+    font-size: 32px;
+    color: white;
+    transform: rotate(357deg);
+    margin-bottom: 16px;
+
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 375px) {
+    .title {
+        justify-content: center;
+        font-size: 18px;
+        padding-left: 0;
+    }
+}

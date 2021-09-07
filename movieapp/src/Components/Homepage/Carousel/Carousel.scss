@@ -1,89 +1,77 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Eczar&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@200&display=swap");
 .popular-container {
   width: 100%;
-  height: fit-content;
   position: relative;
-
-  img {
+  .popular-image {
     max-width: 100%;
   }
-  .description-container {
-    width: 100vw;
-    height: 48vh;
-    background: linear-gradient(180deg,rgba(0,0,0,0%),rgba(0,0,0,80%));
 
+  .description-container {
+    position: absolute;
+    height: 60%;
+    top: 50%;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
-    position: relative;
-    bottom: 47.5vh;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0%), rgba(0, 0, 0, 100%));
 
     .popular-name {
-      font-family: "Indie Flower", cursive;
+      font-family: "Architects Daughter", cursive;
       color: white;
-      font-size: 56px;
-      margin-left: 44px;
+      font-size: 2.5em;
+
+      margin-left: 2em;
     }
 
     .popular-description {
-      width: 70%;
-      font-family: "Eczar", serif;
+      font-family: "Catamaran", sans-serif;
+      font-size: 1em;
       color: white;
-      margin-left: 44px;
+
+      width: 70%;
+      height: 70%;
+      padding-left: 4em;
+
+      display: flex;
+      align-items: center;
     }
   }
 }
 
-.slick-slide {
-  height:90vh;
-}
-
-
-@media screen and (max-width: 767px) {
+@media only screen and (max-width: 26.5em) {
   .popular-container {
-  
-    
-    .description-container {
-      width: 100vw;
-      height: 32vh;
-
-      bottom: 32vh;
-  
+    .description-container{
+      height: 60%;
+      top: 50%;
       .popular-name {
-        font-size: 32px;
-        margin-left: 44px;
+        margin-left: 4px;
+        font-size: 16px;
       }
-  
       .popular-description {
-        width: 70%;
-        font-size:16px;
+        font-size: 8px;
+        padding-left: 4px;
       }
     }
   }
 }
 
-@media screen and (max-width: 400px) {
+@media only screen and (min-width: 26.5625em) and (max-width:63.9375em) {
   .popular-container {
-  
-    
-    .description-container {
-      width: 100vw;
-      height: 32vh;
-
-      bottom: 32vh;
-  
+    .description-container{
+      height: 70%;
+      top: 40%;
       .popular-name {
-        font-size:24px;
-        margin-left: 44px;
+        margin-left: 1em;
+        font-size: 2em;
+        
       }
-  
       .popular-description {
-        width: 70%;
-        font-size:8px;
+        font-size: 1em;
+        padding-left: 1em;
       }
     }
   }

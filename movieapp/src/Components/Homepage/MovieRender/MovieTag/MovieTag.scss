@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+.movie-tag {
+    width: 22%;
+    margin-top: 2em;
+    position: relative;
+
+    .play-button {
+        width: 100%;
+        height: calc(100% - 5.7em);
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 5%), rgba(255, 255, 255, 70%));
+        }
+
+        position: absolute;
+        img {
+            width: 2em;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            &:hover {
+                width: 2.5em;
+                transition: 0.2s ease-in-out;
+            }
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .movie-name {
+        width: 100%;
+        height: 4em;
+
+        display: flex;
+        align-items: center;
+        p {
+            width: 2em;
+            height: 1.5em;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgb(5, 172, 77);
+            color: white;
+            font-family: "Noto Sans", sans-serif;
+            font-size: 1em;
+            border-radius: 6px;
+            }
+        }
+        h3 {
+            width: 90%;
+            margin-left: 4px;
+            font-size: 16px;
+            font-family: "Noto Sans", sans-serif;
+            color: rgb(7, 123, 255);
+            transition: .3s;
+            &:hover {
+                transition: .3s;
+                text-decoration: underline;
+                font-size: 16.5px;
+                cursor: pointer;
+        }
+    }
+    .movie-release {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        height: 1.5em;
+    }
+}
+
+
+@media only screen and (max-width: 26.5em) {
+    .movie-tag {
+        width: 40%;
+        .play-button {
+            height: calc(100% - 5.4em);
+
+            }
+        .movie-name {
+            width: 100%;
+            height: 4em;
+
+            p{
+                font-size: 12px;
+            }
+
+            h3 {
+                font-size: 12px;
+            }
+        }
+        .movie-release {
+           font-size: 12px;
+        }
+    }
+  }
+  
+  @media only screen and (min-width: 26.5625em) and (max-width:63.9375em) {
+    .movie-tag {
+        width: 30%;
+        .play-button {
+            height: calc(100% - 5.3em);}
+        .movie-name {
+
+            p{
+                font-size: 12px;
+            }
+
+            h3 {
+                font-size: 13px;
+            }
+        }
+        .movie-release {
+           font-size: 12px;
+        }
+    }
+  }
+
