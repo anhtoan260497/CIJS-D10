@@ -49,16 +49,23 @@
 
             background-color: rgb(5, 172, 77);
             color: white;
-            margin-left: 0.5em;
             font-family: "Noto Sans", sans-serif;
             font-size: 1em;
             border-radius: 6px;
+            }
         }
         h3 {
+            width: 90%;
             margin-left: 4px;
             font-size: 16px;
             font-family: "Noto Sans", sans-serif;
             color: rgb(7, 123, 255);
+            transition: .3s;
+            &:hover {
+                transition: .3s;
+                text-decoration: underline;
+                font-size: 16.5px;
+                cursor: pointer;
         }
     }
     .movie-release {
@@ -66,6 +73,53 @@
         display: flex;
         justify-content: space-between;
         height: 1.5em;
-        padding: 0 0.5em;
     }
 }
+
+
+@media only screen and (max-width: 26.5em) {
+    .movie-tag {
+        width: 40%;
+        .play-button {
+            height: calc(100% - 5.4em);
+
+            }
+        .movie-name {
+            width: 100%;
+            height: 4em;
+
+            p{
+                font-size: 12px;
+            }
+
+            h3 {
+                font-size: 12px;
+            }
+        }
+        .movie-release {
+           font-size: 12px;
+        }
+    }
+  }
+  
+  @media only screen and (min-width: 26.5625em) and (max-width:63.9375em) {
+    .movie-tag {
+        width: 30%;
+        .play-button {
+            height: calc(100% - 5.3em);}
+        .movie-name {
+
+            p{
+                font-size: 12px;
+            }
+
+            h3 {
+                font-size: 13px;
+            }
+        }
+        .movie-release {
+           font-size: 12px;
+        }
+    }
+  }
+

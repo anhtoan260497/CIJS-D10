@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import "./MovieTag.scss";
-import { Link } from "react-router-dom";
 
 class MovieTag extends Component {
+
+
+  onClickMovie = () => {
+    this.props.history.push(`/movie/${this.props.popularMovies.id}`)
+  }
+
   render() {
     const { poster_path, original_title, original_language, release_date, id } =
       this.props.popularMovies;
@@ -15,10 +20,10 @@ class MovieTag extends Component {
           <img src={process.env.PUBLIC_URL + "Images/playbutton.png"} alt="" />
         </div>
         <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
-        <Link to="/lo" className="movie-name">
+        <div onClick ={this.onClickMovie} className="movie-name">
           <p>P</p>
           <h3>{original_title}</h3>
-        </Link>
+        </div>
         <div className="movie-release">
           <p>Language: {original_language}</p>
           <p>{release_date}</p>
