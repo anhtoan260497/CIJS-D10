@@ -30,7 +30,7 @@ class MovieRender extends Component {
   async componentDidMount() {
     let dataPopular = [];
     let resPopular = await Data.getPopularMovies(this.state.page);
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i <20; i++) {
       dataPopular.push(resPopular.data.results[i]);
     }
     this.setState({ data: dataPopular });
@@ -41,21 +41,23 @@ class MovieRender extends Component {
     if (e.target.name === "isPopularMovies") {
       let dataPopular = [];
       let resPopular = await Data.getPopularMovies(1);
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 20; i++) {
         dataPopular.push(resPopular.data.results[i]);
-      } // Lấy 12 phim
+      } // Lấy 20 phim
       this.setState({
         isPopularMovies: true,
         isTopRatedMovies: false,
         isUpComingMovies: false,
         onTrailer: false,
         data: dataPopular,
-        page:1
+        page:1,
+        search:"",
+        isSearch:false
       });
     } else if (e.target.name === "isTopRatedMovies") {
       let dataTopRated = [];
       let resTopRated = await Data.getTopRatedMovies(1);
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 20; i++) {
         dataTopRated.push(resTopRated.data.results[i]);
       }
       this.setState({
@@ -64,12 +66,14 @@ class MovieRender extends Component {
         isUpComingMovies: false,
         onTrailer: false,
         data: dataTopRated,
-        page:1
+        page:1,
+        search:"",
+        isSearch:false
       });
     } else {
       let dataUpComing = [];
       let resUpComing = await Data.getUpComingMovies(1);
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 20; i++) {
         dataUpComing.push(resUpComing.data.results[i]);
       }
       this.setState({
@@ -78,7 +82,9 @@ class MovieRender extends Component {
         isUpComingMovies: true,
         data: dataUpComing,
         onTrailer: false,
-        page:1
+        page:1,
+        search:"",
+        isSearch:false
       });
     }
   };
@@ -103,8 +109,9 @@ class MovieRender extends Component {
     return this.state.data.map((el) => {
       return (
         <MovieTag
+          getId = {this.props.getId}
           history={this.props.history}
-          popularMovies={el}
+          movies={el}
           key={el.id}
           onGetId={this.onGetId}
         />
@@ -132,8 +139,7 @@ class MovieRender extends Component {
           //Nếu không có gì trong thanh search thì render lại phần Popular
           let dataPopular = [];
           let resPopular = await Data.getPopularMovies(this.state.page);
-          for (let i = 0; i < 12; i++) {
-            // Lấy 12 phim để responsive giao diện
+          for (let i = 0; i <20; i++) {
             dataPopular.push(resPopular.data.results[i]);
           }
           this.setState({ data: dataPopular, isSearch: false });
@@ -152,7 +158,7 @@ class MovieRender extends Component {
       let newMovies = [...this.state.data]; //Clone lại data bên trên
       this.setState({ isLoading: true }); // Cho gif loading
       let resPopular = await Data.getPopularMovies(this.state.page + 1); // Lấy Data Page 2
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 20; i++) {
         newMovies.push(resPopular.data.results[i]); // tạo lại mảng data mới
       }
       this.setState({
@@ -166,7 +172,7 @@ class MovieRender extends Component {
       let newMovies = [...this.state.data];
       this.setState({ isLoading: true });
       let resTopRated = await Data.getTopRatedMovies(this.state.page + 1); //
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 20; i++) {
         newMovies.push(resTopRated.data.results[i]);
       }
       this.setState({
@@ -179,7 +185,7 @@ class MovieRender extends Component {
       let newMovies = [...this.state.data];
       this.setState({ isLoading: true });
       let resUpComing = await Data.getUpComingMovies(this.state.page + 1);
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 20; i++) {
         newMovies.push(resUpComing.data.results[i]);
       }
       this.setState({

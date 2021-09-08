@@ -9,6 +9,7 @@ export default class Carousel extends Component {
     this.play = this.play.bind(this);
     this.state = {
       popularMovies: [],
+      isLoading:true
     };
   }
   play() {
@@ -16,12 +17,13 @@ export default class Carousel extends Component {
   }
 
   componentDidMount = async () => {
+    this.setState({isLoading:true})
     let res = await Data.getPopularMovies();
     let data = [];
     for (let i = 0; i < 6; i++) {
       data.push(res.data.results[i]);
     }
-    this.setState({ popularMovies: data }) // lấy data film popular và lấy ra 6 phim setState
+    this.setState({ popularMovies: data,isLoading:false }) // lấy data film popular và lấy ra 6 phim setState
   };
 
   renderPopularMovies = () => {
@@ -57,7 +59,7 @@ export default class Carousel extends Component {
     return (
       <div>
         <Slider ref={(slider) => (this.slider = slider)} {...settings}>
-          {this.renderPopularMovies()}
+        {this.state.isLoading ? <div><img style={{maxWidth:"30%",}} src={process.env.PUBLIC_URL + "/Images/loading.gif"} alt=""/></div> : this.renderPopularMovies()}
         </Slider>
         <div style={{ textAlign: "center" }}></div>
       </div>

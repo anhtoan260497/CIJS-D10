@@ -8,7 +8,7 @@ class Home extends Component {
     return (
       <Fragment>
         <Carousel />
-        <MovieRender history={this.props.history}/>
+        <MovieRender getId={this.props.getId} history={this.props.history}/>
       </Fragment>
     );
   }
