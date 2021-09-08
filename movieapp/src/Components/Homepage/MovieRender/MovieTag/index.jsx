@@ -5,12 +5,13 @@ class MovieTag extends Component {
 
 
   onClickMovie = () => {
-    this.props.history.push(`/movie/${this.props.popularMovies.id}`)
+    this.props.history.push(`/movie/${this.props.movies.id}`)
+    this.props.getId(this.props.movies.id)
   }
 
   render() {
     const { poster_path, original_title, original_language, release_date, id } =
-      this.props.popularMovies;
+      this.props.movies;
     return (
       <div className="movie-tag">
         <div

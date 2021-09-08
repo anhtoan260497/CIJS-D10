@@ -15,6 +15,12 @@ const Data = {
     },
     getSearch: (search) => {
         return axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_key}&query=${search}`)
+    },
+    getMovieInfo: (id) => {
+        return axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_key}`)
+    },
+    getActors : id => {
+        return axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_key}`)
     }
 }
 

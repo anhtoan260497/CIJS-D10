@@ -3,6 +3,10 @@
 .popular-container {
   width: 100%;
   position: relative;
+  overflow: hidden;
+  .slick-track {
+    max-width: 100%;
+  }
   .popular-image {
     max-width: 100%;
   }
@@ -45,8 +49,8 @@
 @media only screen and (max-width: 26.5em) {
   .popular-container {
     .description-container{
-      height: 60%;
-      top: 50%;
+      height: 70%;
+      top: 32%;
       .popular-name {
         margin-left: 4px;
         font-size: 16px;
