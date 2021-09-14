@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+// Flex Mixin
+@mixin flex($display, $justifyContent, $alignItems) {
+    display: $display;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+}
+
+//Dropdown
+.select-container {
+    margin: 20px 0;
+    padding: 0 8px;
+    width: 100%;
+    height: 28px;
+
+    @include flex(flex, flex-end, center);
+
+    font-size: 16px;
+}
+
+.grid {
+    .total-container {
+        width: 100%;
+        box-shadow: 1px 1px 5px rgb(236, 226, 13);
+    }
+
+    .recover-container {
+        box-shadow: 1px 1px 5px rgb(58, 155, 19);
+    }
+
+    .death-container {
+        box-shadow: 1px 1px 5px rgb(190, 39, 14);
+    }
+    .box {
+        width: 100%;
+        height: 120px;
+        margin: 12px 0 0 0;
+
+        padding: 0 12px;
+        @include flex(flex, space-between, flex-start);
+        flex-direction: column;
+
+        color: rgba(125, 125, 125, 60%);
+        font-size: 18px;
+        font-family: "Rubik", sans-serif;
+
+        .total {
+            color: rgb(236, 226, 13);
+        }
+
+        .recover {
+            color: rgb(58, 155, 19);
+        }
+
+        .death {
+            color: rgb(190, 39, 14);
+        }
+
+        span {
+            font-size: 16px !important;
+        }
+
+        p {
+            height: 20%;
+        }
+
+        .old {
+            width: 60%;
+            @include flex(flex, space-around, center);
+            font-size: 16px;
+        }
+    }
+}

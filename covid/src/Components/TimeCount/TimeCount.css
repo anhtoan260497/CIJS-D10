@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap");
+
+header {
+    margin: 24px 0;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 28px;
+    text-align: center;
+    color: rgb(238, 90, 90);
+}
+
+.current-time {
+    margin: 0 auto;
+    height: 48px;
+    max-width: 70%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Source Sans Pro", sans-serif;
+
+    background-color: black;
+    border-radius: 20px;
+}
+
+.date { 
+    width: 60%;
+}
+
+.time {
+    width: 40%;
+}
+
+
+/* > PC low resolution */
+@media (min-width: 1024px) and (max-width: 1239px){
+    header{
+        font-size: 36px;
+    }
+
+    .current-time {
+        font-size: 28px;
+        max-width: 60%;
+    }
+}
+
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    header{
+        font-size: 32px;
+    }
+
+    .current-time {
+        font-size: 24px;
+        max-width: 55%;
+    }
+}
+
+/* Wide Screen */
+@media (min-width: 1113px){
+      header {
+        font-size: 40px;
+      }
+      .current-time {
+        font-size: 32px;
+        max-width: 50%;
+    }
+  }
