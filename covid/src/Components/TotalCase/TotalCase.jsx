@@ -22,15 +22,9 @@ class TotalCase extends Component {
         let resData = await Data.globalData();
         this.setState({ data: resData.data });
       } else {
-        let resData = await Data.searchCountry(country);
-        console.log(resData);
-        if(resData.data === ""){
-          alert('No report from this country')
-          return null
-        }
-        this.setState({ data: resData.data.latest_stat_by_country[0] }, () => {
-          console.log(this.state.data);
-        });
+        let resData = await Data.searchCountry();
+        let data = resData.data.result.filter(el => { return el.country === country })
+        this.setState({data : data[0]})
       }
     });
   };
@@ -38,9 +32,24 @@ class TotalCase extends Component {
 
   componentDidMount = async () => {
     let resCountry = await Data.allCountry();
-    this.setState({ allCountries: ["Global", ...resCountry.data.response] }); // lấy Data tên các nước gán vào phần State để render ở Select
-    let resData = await Data.globalData();
-    this.setState({ data: resData.data }); // set Data lúc vừa vào page là Global
+    let allCountries = ["Global"]
+    resCountry.data.result.map(el => { return allCountries.push(el.country)})
+    this.setState({allCountries:allCountries.sort()}) // lấy Data tên các nước gán vào phần State để render ở Select
+    let resNewCase  = await Data.globalDaily()
+    console.log(resNewCase.data.result)
+    let newCaseArr = resNewCase.data.result.map(el => el.newCases)
+    let newDeathsArr = resNewCase.data.result.map(el => el.newDeaths)
+    let newCase = 0
+    let newDeaths = 0
+    for(let i =0 ; i < newCaseArr.length ; i++ ){
+      if(parseInt(newCaseArr[i]) > 500 ) {newCase += parseInt(parseInt(newCaseArr[i]))} else {newCase += parseInt(parseInt(newCaseArr[i])*1000)}
+      if(parseInt(newDeathsArr[i]) > 3 ) {newDeaths += parseInt(parseInt(newDeathsArr[i]))} else {newDeaths += parseInt(parseInt(newDeathsArr[i])*1000)}
+      
+    }
+    console.log(newCase,newDeaths)
+    let resData = await Data.globalTotal();
+    this.setState({ data: {...resData.data.result,newCases:newCase,newDeaths:newDeaths} }); // set Data lúc vừa vào page là Global
+
   };
 
   renderAllCountries = () => {
@@ -55,13 +64,8 @@ class TotalCase extends Component {
 
   render() {
     const {
-      new_cases,
-      new_deaths,
-      total_cases,
-      total_deaths,
-      total_recovered,
+      newCases, newDeaths, totalCases, totalDeaths, totalRecovered
     } = this.state.data;
-
     return (
       <Fragment>
         <div className="select-container">
@@ -73,32 +77,30 @@ class TotalCase extends Component {
             {this.renderAllCountries()}
           </Select>
         </div>
-        <div className="grid">
-          <div className="row">
-            <div className="c-12 box total-container">
-              <p>New Case</p>
-              <p className="total">+ { new_cases === "" ? 0 : new_cases}</p>
-              <p className="old">
-                Total Cases
-                <span>{total_cases}</span>
-              </p>
-            </div>
-            <div className="c-12 box recover-container">
-              <p>New Recover</p>
-              <p className="recover">+ {`No Information`}</p>
-              <p className="old">
-                Total Recovers
-                <span>{total_recovered}</span>
-              </p>
-            </div>
-            <div className="c-12 box death-container">
-              <p>New Deaths</p>
-              <p className="death"> + {new_deaths === "" ? 0 : new_deaths}</p>
-              <p className="old">
-                Total Deaths
-                <span>{total_deaths}</span>
-              </p>
-            </div>
+        <div className="totalcase-container">
+          <div className="box total-container">
+            <p>New Case</p>
+            <p className="total">{newCases === "" ? 0 : newCases}</p>
+            <p className="old">
+              Total Cases
+              <span>{totalCases}</span>
+            </p>
+          </div>
+          <div className="box recover-container">
+            <p>New Recover</p>
+            <p className="recover">+ {`No Information`}</p>
+            <p className="old">
+              Total Recovers
+              <span>{totalRecovered}</span>
+            </p>
+          </div>
+          <div className="box death-container">
+            <p>New Deaths</p>
+            <p className="death">{newDeaths === "" ? 0 : newDeaths}</p>
+            <p className="old">
+              Total Deaths
+              <span>{totalDeaths}</span>
+            </p>
           </div>
         </div>
       </Fragment>

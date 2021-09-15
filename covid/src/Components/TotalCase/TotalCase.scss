@@ -19,25 +19,36 @@
     font-size: 16px;
 }
 
-.grid {
+.border {
+    border: 1px solid black;
+}
+.totalcase-container {
+    width: 100vw;
+    @include flex(flex, space-between, center);
+    flex-wrap: wrap;
+
     .total-container {
-        width: 100%;
-        box-shadow: 1px 1px 5px rgb(236, 226, 13);
+        box-shadow: 3px 3px 10px rgb(213, 178, 13);
+        border-top: 5px solid rgb(213, 178, 13);
     }
 
     .recover-container {
-        box-shadow: 1px 1px 5px rgb(58, 155, 19);
+        box-shadow: 3px 3px 10px rgb(58, 155, 19);
+        border-top: 5px solid rgb(58, 155, 19);
     }
 
     .death-container {
-        box-shadow: 1px 1px 5px rgb(190, 39, 14);
+        box-shadow: 3px 3px 10px rgb(190, 39, 14);
+        border-top: 5px solid rgb(190, 39, 14);
     }
-    .box {
-        width: 100%;
-        height: 120px;
-        margin: 12px 0 0 0;
 
+    .box {
+        height: 120px;
+        width: 100%;
+        margin: 20px 0 0 0;
         padding: 0 12px;
+       
+        border-radius: 5px;
         @include flex(flex, space-between, flex-start);
         flex-direction: column;
 
@@ -46,7 +57,7 @@
         font-family: "Rubik", sans-serif;
 
         .total {
-            color: rgb(236, 226, 13);
+            color: rgb(213, 178, 13);
         }
 
         .recover {
@@ -67,8 +78,56 @@
 
         .old {
             width: 60%;
-            @include flex(flex, space-around, center);
+            @include flex(flex, space-between, center);
             font-size: 16px;
+        }
+    }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1112px) {
+    .select-container {
+        justify-content: flex-start;
+        padding: 0 24px;
+    }
+    .totalcase-container {
+        width: 100%;
+        padding: 0 24px;
+        .box {
+            width: 30%;
+            margin: 0 0 0 0;
+            .old {
+                width: 100%;
+                @include flex(flex, space-around, center);
+                font-size: 14px;
+                span {
+                    font-size: 13px !important;
+                }
+            }
+        }
+    }
+}
+
+/* Wide Screen */
+@media (min-width: 1113px) {
+    .select-container {
+        justify-content: flex-start;
+        padding: 0 24px;
+    }
+    .totalcase-container {
+        width: 60%;
+        margin: 0 24px;
+        .box {
+            width: 30%;
+            margin: 0 0 0 0;
+            .old {
+                width: 100%;
+                @include flex(flex, space-around, center);
+                font-size: 13px;
+                span {
+                    font-size: 13px !important;
+                }
+            }
         }
     }
 }
