@@ -1,0 +1,19 @@
+.first-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+
+@media (min-width: 740px) and (max-width: 1112px) {
+    .first-container {
+        width: 100vw;
+    }
+}
+
+@media (min-width: 1113px) {
+    .first-container {
+        width: 60vw;
+    }
+}

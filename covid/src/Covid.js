@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import TimeCount from './Components/TimeCount/TimeCount';
-import Home from './Home'
-
+import React, { Component } from "react";
+import TimeCount from "./Components/TimeCount/TimeCount";
+import Home from "./Home";
 class Covid extends Component {
   render() {
     return (

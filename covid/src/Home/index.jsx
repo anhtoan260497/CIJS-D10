@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import Map from '../Components/TotalCase/Map';
-import TotalCase from '../Components/TotalCase/TotalCase';
-
+import Info from '../Components/Info/Info';
 class Home extends Component {
     render() {
         return (
             <div>
-                <TotalCase />
-                <Map />
+                <Info />
             </div>
         );
     }
