@@ -16,16 +16,6 @@ class Info extends Component {
   }
 
   getDataClickCountry = async (country) => {
-    // if (country !== "Global") {
-    //   let resDayOne = await Data.caseDayOne(country);
-    //   let dataDayOne = resDayOne.data
-    //   let idx = dataDayOne.findIndex(el => el.Date === "2021-01-01T00:00:00Z")
-    //   dataDayOne.slice(0,idx)
-    //   this.setState({dayOne : dataDayOne})
-    // } else {
-    //   let resDayOne = await Data.caseDayOneGlobal()
-    //   this.setState({dayOne:resDayOne.data})
-    // }
     this.setState({chooseCountry:country})
   };
 
