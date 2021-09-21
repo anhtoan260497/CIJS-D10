@@ -18,16 +18,18 @@ class TotalCase extends Component {
   }
 
   handleClickCountry = async (country) => {
-    this.props.getDataClickCountry(country)
     let resData = await Data.summary();
     this.setState({ chooseCountry: country }, () => {
       if (this.state.chooseCountry === "Global") {
+        this.props.getDataClickCountry(country)
         this.setState({ data: resData.data.Global });
       } else {
         let data = resData.data.Countries.filter(
           (el) => el.Country === country
         );
-        this.setState({ data: data[0] });
+        this.setState({ data: data[0]},()=>{
+          this.props.getDataClickCountry(country,this.state.data.CountryCode)
+        });
       }
     });
   };
@@ -78,7 +80,6 @@ class TotalCase extends Component {
                 {this.renderAllCountries()}
               </Select>
             </div>
-            <div className="container">
               <div className="totalcase-container">
                 <div className="box total-container">
                   <p>New Case</p>
@@ -105,7 +106,6 @@ class TotalCase extends Component {
                   </p>
                 </div>
               </div>
-            </div>
           </Fragment>
         ) : (
           <img

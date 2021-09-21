@@ -1,9 +1,14 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "antd/dist/antd.css";
 import "./Info.scss";
 import TotalCase from "../TotalCase/TotalCase";
-// import TotalTable from "../TotalTable/TotalTable";
 import TotalChart from "../TotalChart/TotalChart";
+import "antd/dist/antd.css";
+import { Button } from "antd";
+import Map from "../MapAndTable/Map";
+import Table from "../MapAndTable/Table";
+
+
 
 class Info extends Component {
   constructor(props) {
@@ -12,21 +17,39 @@ class Info extends Component {
       allCountries: [],
       chooseCountry: "Global",
       data: {},
+      type: "Map of Country",
+      countryCode : "vn"
     };
   }
 
-  getDataClickCountry = async (country) => {
-    this.setState({chooseCountry:country})
+  getDataClickCountry =(country,countryCode) => {
+    this.setState({ chooseCountry: country,countryCode : countryCode.toLowerCase() });
   };
+
+  onChangeType = (e) => {
+    this.setState({ type: e.target.innerText });
+  };
+
 
   render() {
     return (
-      <Fragment>
+      <div className="container">
         <div className="first-container">
           <TotalCase getDataClickCountry={this.getDataClickCountry} />
-          <TotalChart chooseCountry={this.state.chooseCountry}/>
+          <TotalChart chooseCountry={this.state.chooseCountry} />
         </div>
-      </Fragment>
+        <div className="second-container">
+          <div className="btn-container">
+            <Button name="map" onClick={(e) => this.onChangeType(e)}>
+              Map of Country
+            </Button>
+            <Button name="table" onClick={(e) => this.onChangeType(e)}>
+              Table of Countries
+            </Button>
+          </div>
+          {this.state.type === "Map of Country" ? <Map countryCode={this.state.countryCode} /> : <Table />}  {/* chuyển trạng thái button*/} 
+        </div>
+      </div>
     );
   }
 }

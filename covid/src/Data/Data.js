@@ -9,7 +9,10 @@ const Data = {
    },
    caseDayOneGlobal : () => {
      return axios.get(`https://api.covid19api.com/world`)
-   }
+   },
+   getWorld : () => {
+    return axios.get(`https://code.highcharts.com/mapdata/countries/us/us-all.geo.json`);
+  }
 }
 
 export default Data

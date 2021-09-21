@@ -37,7 +37,7 @@ const TotalChart = (props) => {
     }
   }, [props.chooseCountry]);
 
-  //Use Effect thay đổi Total
+  //Use Effect thay đổi Total Global
   useEffect(() => {
     if (props.chooseCountry !== "Global") {
       const getTotal = async (country) => {
@@ -59,7 +59,7 @@ const TotalChart = (props) => {
     } else {
       const getTotal = async () => {
         let resDate = await Data.caseDayOneGlobal();
-        let newTotal = resDate.data.map((el) => el.TotalConfirmed);
+        let newTotal = resDate.data.map((el) => el.NewConfirmed);
         setTotalCase({
           label: "Total Cases",
           data: newTotal,
@@ -129,7 +129,7 @@ const TotalChart = (props) => {
     } else {
       const getDeaths = async () => {
         let resDeaths = await Data.caseDayOneGlobal();
-        let newDeaths = resDeaths.data.map((el) => el.TotalDeaths);
+        let newDeaths = resDeaths.data.map((el) => el.NewDeaths);
         setTotalDeaths({
           label: "Total Deaths",
           data: newDeaths,
