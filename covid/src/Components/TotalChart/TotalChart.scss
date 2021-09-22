@@ -1,6 +1,14 @@
 .chart-container{
-    width: 90%;
- margin : 5% auto 2% auto ;
+    width: 85%;
  box-shadow:  5px 5px 20px gray;
  border-radius: 10px;
+ margin:auto;
+}
+
+.button-container {
+    width: 50%;
+    height: 36px;
+    margin : 5% 0 2% 4% ;
+    display: flex;
+    justify-content: space-around;
 }

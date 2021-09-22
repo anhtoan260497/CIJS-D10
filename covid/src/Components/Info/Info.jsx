@@ -23,7 +23,8 @@ class Info extends Component {
   }
 
   getDataClickCountry =(country,countryCode) => {
-    this.setState({ chooseCountry: country,countryCode : countryCode.toLowerCase() });
+    if(country !== "Global") this.setState({ chooseCountry: country,countryCode : countryCode.toLowerCase() });
+    else {this.setState({chooseCountry:"Global"})}
   };
 
   onChangeType = (e) => {

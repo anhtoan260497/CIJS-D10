@@ -63,7 +63,6 @@ function Map(props) {
 
   useEffect(() => {
     if (mapData && Object.keys(mapData).length) {
-      console.log({ mapData });
       const fakeData = mapData.features.map((feature, index) => ({
         key: feature.properties["hc-key"],
         value: index,
