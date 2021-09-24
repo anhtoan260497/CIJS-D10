@@ -1,5 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap");
 
+.header{
+    margin:auto;
+    width: 90%;
+    height: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+}
+
+.options{
+    width: 30%;
+    height: 48px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 16px;
+}
+
 header {
     margin: 24px 0;
     font-family: "Source Sans Pro", sans-serif;

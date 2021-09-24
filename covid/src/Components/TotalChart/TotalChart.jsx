@@ -352,7 +352,7 @@ const TotalChart = (props) => {
       <div className="button-container">
         <Button onClick={(e) => onChangeAmount(e)}>This Year</Button>
         <Button onClick={(e) => onChangeAmount(e)}>30 Days</Button>
-        <Button onClick={(e) => onChangeAmount(e)}>7 Days</Button>
+        <Button type="default" onClick={(e) => onChangeAmount(e)}>7 Days</Button>
       </div>
       {!isLoading ?  <div className="chart-container">
         <Line data={data} />

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './TimeCount.css'
+import {Link} from 'react-router-dom'
 
 class TimeCount extends Component {
   constructor(props) {
@@ -54,8 +55,16 @@ class TimeCount extends Component {
 
   render() {
     return (
-        <div className="header">
-          <header>Tracking COVID App</header>
+        <div>
+          <div className="header">
+             <Link to="/"><header>Tracking COVID App</header></Link>
+             <div className="options">
+               <Link to="/quy-tac-5-khong">To Prevent COVID</Link>
+             <Link to="/about">About Me</Link>
+             </div>
+             
+          </div>
+         
           <div className="current-time">
             {this.onLoadDate()}
             <h1 style={{ fontSize: "32px" }}>|</h1>

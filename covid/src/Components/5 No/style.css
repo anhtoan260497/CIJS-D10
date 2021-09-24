@@ -1,0 +1,115 @@
+/* body
+{
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: consolas;
+} */
+.container-box
+{
+	position: relative;
+	width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin : 5% 0 ;
+}
+.container-box .content-box
+{
+	position: relative;
+	width: 17%;
+	height: 50vh;
+	margin: 20px 0;
+	box-sizing: border-box;
+	overflow: hidden;
+	box-shadow: 5px 5px 40px rgb(200,200,200);
+	border-radius: 10px;
+}
+.container-box .content-box .imgBx
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	clip-path: circle(400px at center 100px);
+	transition: 0.3s;
+	transition-delay: 0.5s;
+}
+.container-box .content-box:hover .imgBx
+{
+	clip-path: circle(80px at center 85px);
+	transition-delay: 0s;
+}
+
+.container-box .content-box:hover .imgBx img
+{
+	top:-15%;
+	transition: 2.5s;
+}
+
+
+.container-box .content-box .imgBx img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: 0.5s;
+}
+.container-box .content-box .content
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 55%;
+	padding: 20px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.container .content-box .content h2
+{
+	margin: 0;
+	padding: 0;
+}
+.container-box .content-box .content a
+{
+	text-decoration: none;
+	background: #000;
+	color: #fff;
+	padding: 5px;
+	display: inline-block;
+}
+.container-box .content-box .content h2,
+.container-box .content-box .content p,
+.container-box .content-box .content a
+{
+	opacity: 0;
+	transition: 0.5s;
+	transform: translateY(20px);
+}
+.container-box .content-box:hover .content h2
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.5s
+}
+.container-box .content-box:hover .content p
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.7s
+}
+.container-box .content-box:hover .content a
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.9s
+}
