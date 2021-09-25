@@ -59,7 +59,7 @@ class TimeCount extends Component {
           <div className="header">
              <Link to="/"><header>Tracking COVID App</header></Link>
              <div className="options">
-               <Link to="/quy-tac-5-khong">To Prevent COVID</Link>
+               <Link to="/quy-tac-5-khong">Quy tắc 5K</Link>
              <Link to="/about">About Me</Link>
              </div>
              

@@ -4,7 +4,7 @@ import "./style.css";
 const Prevent = () => {
   return (
     <Fragment>
-      <h1 style={{margin:"5% 38% 0 38%"}}>Thực hiện quy tắt 5 không</h1>
+      <h1 style={{margin:"5% 38% 0 38%"}}>Quy tắc 5K</h1>
       <div className="container-box">
         <div className="content-box">
           <div className="imgBx">

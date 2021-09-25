@@ -8,6 +8,7 @@
 	align-items: center;
 	font-family: consolas;
 } */
+
 .container-box
 {
 	position: relative;
@@ -20,7 +21,7 @@
 .container-box .content-box
 {
 	position: relative;
-	width: 17%;
+	width: 90%;
 	height: 50vh;
 	margin: 20px 0;
 	box-sizing: border-box;
@@ -113,3 +114,18 @@
 	transform: translateY(0);
 	transition-delay: 0.9s
 }
+
+
+@media (min-width: 740px) and (max-width: 1112px) {
+	.container-box .content-box{
+		width: 30%;
+	}
+}
+
+/* Wide Screen */
+@media (min-width: 1113px){
+
+    .container-box .content-box{
+		width: 17%;
+	}
+  }

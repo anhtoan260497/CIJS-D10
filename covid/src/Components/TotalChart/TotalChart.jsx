@@ -356,7 +356,11 @@ const TotalChart = (props) => {
       </div>
       {!isLoading ?  <div className="chart-container">
         <Line data={data} />
-      </div> :null }
+      </div> :<img
+            style={{ margin: "auto 45%" }}
+            src={process.env.PUBLIC_URL + "loader.gif"}
+            alt=""
+          /> }
     
     </div>
   );
